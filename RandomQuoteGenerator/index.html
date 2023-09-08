@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+    <h1>Random Quote Generator</h1>
+    <div class="quote-container">
+        <div id="quote" class="quote">
+            "This is a random quote."
+        </div>
+        <div id="author" class="author">
+            - Author
+        </div>
+        <button id="new-quote-button" class="new-quote-button">New Quote</button>
+    </div>
+
+    <script>
+        const quotes = [
+            {
+                text: "The only way to do great work is to love what you do.",
+                author: "Steve Jobs"
+            },
+            {
+                text: "In three words I can sum up everything I've learned about life: it goes on.",
+                author: "Robert Frost"
+            },
+            {
+                text: "Life is really simple, but we insist on making it complicated.",
+                author: "Confucius"
+            },
+            {
+                text: "The only true wisdom is in knowing you know nothing.",
+                author: "Socrates"
+            },
+            {
+                text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
+                author: "Winston Churchill"
+            }
+        ];
+
+        const quoteElement = document.getElementById("quote");
+        const authorElement = document.getElementById("author");
+        const newQuoteButton = document.getElementById("new-quote-button");
+
+        function getRandomQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            return quotes[randomIndex];
+        }
+
+        function displayRandomQuote() {
+            const randomQuote = getRandomQuote();
+            quoteElement.textContent = `"${randomQuote.text}"`;
+            authorElement.textContent = `- ${randomQuote.author}`;
+        }
+
+        newQuoteButton.addEventListener("click", displayRandomQuote);
+
+        // Display an initial random quote when the page loads
+        displayRandomQuote();
+    </script>
+</body>
+</html>
